@@ -37,7 +37,10 @@ function init() {
     this.color = color;
     this.radians = Math.random() * Math.PI * 2;
     this.velocity = 0.008;
-    this.path = randomIntRange(canvas.width / 10, canvas.width / 4);
+    this.path = randomIntRange(
+      canvas.width / 10,
+      Math.min(canvas.width, canvas.height)
+    );
     this.speed = 3;
 
     this.draw = function() {
