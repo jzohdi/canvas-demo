@@ -20,7 +20,14 @@ function init() {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
     });
-
+  document.getElementById("map-canvas2").addEventListener(
+    "touchmove",
+    function(e) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+    },
+    false
+  );
   function Particle(x, y, radius, color) {
     this.centerx = x;
     this.centery = y;
