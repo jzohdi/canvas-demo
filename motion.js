@@ -36,10 +36,11 @@ function init() {
     this.radius = radius;
     this.color = color;
     this.radians = Math.random() * Math.PI * 2;
-    this.velocity = 0.008;
+    // this.direction = Math.floor(Math.random() * 2) == 1 ? 1 : -1;
+    this.velocity = 0.009;
     this.path = randomIntRange(
       canvas.width / 10,
-      Math.min(canvas.width, canvas.height)
+      Math.min(canvas.width / 1.5, canvas.height / 1.5)
     );
     this.speed = 3;
 
