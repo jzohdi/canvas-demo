@@ -31,6 +31,7 @@ function init() {
     this.radians = Math.random() * Math.PI * 2;
     this.velocity = 0.008;
     this.path = randomIntRange(150, 400);
+    this.speed = 3;
 
     this.draw = function() {
       cb.beginPath();
@@ -52,32 +53,32 @@ function init() {
         mouse.y <= innerHeight - 20
       ) {
         if (this.centerx >= mouse.x + 5) {
-          this.centerx -= 2;
+          this.centerx -= this.speed;
         }
         if (this.centerx <= mouse.x - 5) {
-          this.centerx += 2;
+          this.centerx += this.speed;
         }
         if (this.centery >= mouse.y + 5) {
-          this.centery -= 2;
+          this.centery -= this.speed;
         }
         if (this.centery <= mouse.y - 5) {
-          this.centery += 2;
+          this.centery += this.speed;
         }
-        this.centerx = mouse.x;
-        this.centery = mouse.y;
+        // this.centerx = mouse.x;
+        // this.centery = mouse.y;
       } else {
         if (this.centerx >= innerWidth / 2 + 2) {
-          this.centerx /= 1.01;
+          this.centerx /= 1.05;
         }
         if (this.centerx <= innerWidth / 2 - 2) {
-          this.centerx *= 1.01;
+          this.centerx *= 1.05;
         }
         // this.centerx = innerWidth / 2;
         if (this.centery >= innerHeight / 2 + 2) {
-          this.centery /= 1.01;
+          this.centery /= 1.05;
         }
         if (this.centery <= innerHeight / 2 - 2) {
-          this.centery *= 1.01;
+          this.centery *= 1.05;
         }
       }
       this.draw();
