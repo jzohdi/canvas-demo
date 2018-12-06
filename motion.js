@@ -14,10 +14,12 @@ function init() {
     y: undefined
   };
 
-  window.addEventListener("mousemove", function() {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-  });
+  document
+    .getElementById("map-canvas2")
+    .addEventListener("mousemove", function() {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+    });
 
   function Particle(x, y, radius, color) {
     this.centerx = x;
