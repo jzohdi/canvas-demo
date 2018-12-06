@@ -1,0 +1,28 @@
+html,
+body,
+#map-canvas,
+.container-fluid {
+  /* height of these elements */
+  height: 100%;
+
+  /* no margin around these elements */
+  margin: 0;
+
+  /* disable scrollbars */
+  overflow: hidden;
+
+  /* no padding within these elements */
+  padding: 0;
+
+  font-size: 40px;
+}
+#right,
+#left {
+  z-index: 1;
+  transition: color 0.8s;
+}
+#right:hover,
+#left:hover {
+  color: black;
+  cursor: pointer;
+}

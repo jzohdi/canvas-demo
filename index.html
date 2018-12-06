@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel = 'stylesheet' href = 'styles.css' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Canvas Demo</title>
+    <style id="add-styles"></style>
+  </head>
+
+  <body>
+      <nav style='height: 0px;' aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <a id='left' href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a id='1' href="#">1</a></li>
+            <li><a id='2' href="#">2</a></li>
+            <li><a id='3' href="#">3</a></li>
+            <li><a id='4' href="#">4</a></li>
+            <li><a id='5' href="#">5</a></li>
+            <li>
+              <a id='right' href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      <div id='new-canvas'>
+      <canvas id='map-canvas'></canvas>
+    </div>
+  </body>
+  <footer>
+    <script src='particle.js'></script>
+    <script src ='motion.js'></script>
+    <script id='scripts' type='text/javascript'>
+    initO();
+    </script>
+</html>
