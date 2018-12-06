@@ -63,8 +63,8 @@ function init() {
         if (this.centery <= mouse.y - 5) {
           this.centery += 2;
         }
-        // this.centerx = mouse.x;
-        // this.centery = mouse.y;
+        this.centerx = mouse.x;
+        this.centery = mouse.y;
       } else {
         if (this.centerx >= innerWidth / 2 + 2) {
           this.centerx /= 1.01;
