@@ -8,17 +8,6 @@ function initO(canvasId) {
 
   var cb = canvas.getContext("2d");
 
-  // $("#add-styles").append(
-  //   "#right{transform:translate(" +
-  //     -20 +
-  //     "px," +
-  //     (-centerY).toString() +
-  //     "px);float:right;}#left{transform:translate(" +
-  //     20 +
-  //     "px," +
-  //     (-centerY).toString() +
-  //     "px); float:left;}"
-  // );
   function randomIntRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -28,7 +17,9 @@ function initO(canvasId) {
     "<canvas id ='map-canvas3'></canvas>",
     "<canvas id='map-canvas4'></canvas>"
   ];
+
   const maps = ["map-canvas", "map-canvas2", "map-canvas3", "map-canvas4"];
+
   var currentCanvas = 0;
   // var scriptsOptions = [initO(), init()];
   document.getElementById("right").addEventListener("click", function() {
@@ -39,10 +30,7 @@ function initO(canvasId) {
     setNewCanvas(-1);
   });
 
-  function setNewCanvas(num) {
-    let index = Math.abs(currentCanvas + num) % canvasOptions.length;
-    currentCanvas = index;
-
+  function goToPage(index) {
     $("#new-canvas").empty();
     $("#new-canvas").append(canvasOptions[index]);
     let $scripts = $("#scripts");
@@ -62,6 +50,17 @@ function initO(canvasId) {
       $scripts.append(init3(maps[index]));
     }
   }
+  for (let j = 0; j < canvasOptions.length; j++) {
+    document.getElementById("" + j + "").addEventListener("click", function() {
+      goToPage(j);
+    });
+  }
+  function setNewCanvas(num) {
+    let index = Math.abs(currentCanvas + num) % canvasOptions.length;
+    currentCanvas = index;
+    goToPage(index);
+  }
+
   cb.fillStyle = "black";
   cb.fillRect(0, 0, innerWidth, innerHeight);
 
