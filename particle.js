@@ -22,12 +22,13 @@ function initO(canvasId) {
   function randomIntRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  var canvasOptions = [
+  const canvasOptions = [
     "<canvas id='map-canvas'></canvas>",
     "<canvas id='map-canvas2'></canvas>",
     "<canvas id ='map-canvas3'></canvas>",
     "<canvas id='map-canvas4'></canvas>"
   ];
+  const maps = ["map-canvas", "map-canvas2", "map-canvas3", "map-canvas4"];
   var currentCanvas = 0;
   // var scriptsOptions = [initO(), init()];
   document.getElementById("right").addEventListener("click", function() {
@@ -47,18 +48,18 @@ function initO(canvasId) {
     let $scripts = $("#scripts");
     $scripts.empty();
 
-    if (index == 1) {
-      $scripts.append(init("map-canvas2"));
-    }
     if (index == 0) {
-      $scripts.append(initO("map-canvas"));
+      window.location.reload();
+    }
+    if (index == 1) {
+      $scripts.append(init(maps[index]));
     }
     if (index == 2) {
-      $scripts.append(init2("map-canvas3"));
+      $scripts.append(init2(maps[index]));
     }
     if (index == 3) {
       window.pxl2 = true;
-      $scripts.append(init3("map-canvas4"));
+      $scripts.append(init3(maps[index]));
     }
   }
   cb.fillStyle = "black";
