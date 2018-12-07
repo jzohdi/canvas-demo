@@ -24,7 +24,8 @@ function initO() {
   }
   var canvasOptions = [
     "<canvas id='map-canvas'></canvas>",
-    "<canvas id='map-canvas2'></canvas>"
+    "<canvas id='map-canvas2'></canvas>",
+    "<canvas id ='map-canvas3'></canvas>"
   ];
   var currentCanvas = 0;
   // var scriptsOptions = [initO(), init()];
@@ -42,14 +43,17 @@ function initO() {
 
     $("#new-canvas").empty();
     $("#new-canvas").append(canvasOptions[index]);
-
-    $("#scripts").empty();
+    let $scripts = $("#scripts");
+    $scripts.empty();
 
     if (index == 1) {
-      $("#scripts").append(init());
+      $scripts.append(init());
     }
     if (index == 0) {
-      $("#scripts").append(initO());
+      $scripts.append(initO());
+    }
+    if (index == 2) {
+      $scripts.append(init2());
     }
   }
   cb.fillStyle = "black";
