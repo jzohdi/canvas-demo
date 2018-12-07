@@ -142,10 +142,17 @@ function init3(canvasID) {
 
     ctx.putImageData(pixelData, 0, 0);
   }
-  $("#" + canvasID).on("click touchstart", function() {
+
+  document.getElementById(canvasID).addEventListener("click", function() {
     let maxD = furthestWallCorner(event.clientX, event.clientY);
     drops.push(new Drip(event.clientX, event.clientY, maxD.distance));
   });
+
+  document.getElementById(canvasID).addEventListener("touchstart", function() {
+    let maxD = furthestWallCorner(event.clientX, event.clientY);
+    drops.push(new Drip(event.clientX, event.clientY, maxD.distance));
+  });
+
   function animate() {
     if (window.pxl2) {
       requestAnimationFrame(animate);
