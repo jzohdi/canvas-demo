@@ -1,5 +1,5 @@
-function initO() {
-  var canvas = document.getElementById("map-canvas");
+function initO(canvasId) {
+  var canvas = document.getElementById(canvasId);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
@@ -25,7 +25,8 @@ function initO() {
   var canvasOptions = [
     "<canvas id='map-canvas'></canvas>",
     "<canvas id='map-canvas2'></canvas>",
-    "<canvas id ='map-canvas3'></canvas>"
+    "<canvas id ='map-canvas3'></canvas>",
+    "<canvas id='map-canvas4'></canvas>"
   ];
   var currentCanvas = 0;
   // var scriptsOptions = [initO(), init()];
@@ -47,13 +48,17 @@ function initO() {
     $scripts.empty();
 
     if (index == 1) {
-      $scripts.append(init());
+      $scripts.append(init("map-canvas2"));
     }
     if (index == 0) {
-      $scripts.append(initO());
+      $scripts.append(initO("map-canvas"));
     }
     if (index == 2) {
-      $scripts.append(init2());
+      $scripts.append(init2("map-canvas3"));
+    }
+    if (index == 3) {
+      window.pxl2 = true;
+      $scripts.append(init3("map-canvas4"));
     }
   }
   cb.fillStyle = "black";
@@ -129,26 +134,27 @@ function initO() {
     );
   }
 
-  document.getElementById("map-canvas").addEventListener("click", function() {
+  document.getElementById(canvasId).addEventListener("click", function() {
     electron_arr.forEach(function(ele) {
       ele.velocity *= -1;
     });
   });
 
   function animate() {
-    requestAnimationFrame(animate);
+    if (document.getElementById(canvasId) != undefined) {
+      requestAnimationFrame(animate);
 
-    cb.fillStyle = "rgba(0, 0, 0, 0.05)";
-    cb.fillRect(0, 0, innerWidth, innerHeight);
+      cb.fillStyle = "rgba(0, 0, 0, 0.05)";
+      cb.fillRect(0, 0, innerWidth, innerHeight);
 
-    neuclius.forEach(function(element) {
-      element.draw();
-    });
+      neuclius.forEach(function(element) {
+        element.draw();
+      });
 
-    electron_arr.forEach(function(element) {
-      element.update();
-    });
+      electron_arr.forEach(function(element) {
+        element.update();
+      });
+    }
   }
-
   animate();
 }

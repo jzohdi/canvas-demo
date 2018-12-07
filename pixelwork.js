@@ -1,5 +1,5 @@
-function init2() {
-  var canvas = document.getElementById("map-canvas3");
+function init2(canvasId) {
+  var canvas = document.getElementById(canvasId);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
@@ -51,12 +51,13 @@ function init2() {
   drawPixels();
 
   function animate() {
-    requestAnimationFrame(animate);
+    if (document.getElementById(canvasId) != undefined) {
+      requestAnimationFrame(animate);
 
-    ctx.fillStyle = "rgba(0, 0, 0, 1)";
-    ctx.fillRect(0, 0, innerWidth, innerHeight);
-    drawPixels();
+      ctx.fillStyle = "rgba(0, 0, 0, 1)";
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      drawPixels();
+    }
   }
-
   animate();
 }

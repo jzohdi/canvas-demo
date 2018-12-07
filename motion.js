@@ -1,5 +1,5 @@
-function init() {
-  var canvas = document.getElementById("map-canvas2");
+function init(canvasId) {
+  var canvas = document.getElementById(canvasId);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
@@ -14,13 +14,11 @@ function init() {
     y: undefined
   };
 
-  document
-    .getElementById("map-canvas2")
-    .addEventListener("mousemove", function() {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-    });
-  document.getElementById("map-canvas2").addEventListener(
+  document.getElementById(canvasId).addEventListener("mousemove", function() {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+  });
+  document.getElementById(canvasId).addEventListener(
     "touchmove",
     function(e) {
       mouse.x = e.touches[0].clientX;
@@ -106,14 +104,15 @@ function init() {
   init1();
 
   function animate() {
-    requestAnimationFrame(animate);
-    // cb.clearRect(0, 0, innerWidth, innerHeight);
-    cb.fillStyle = "rgba(255, 255, 255, 0.05)";
-    cb.fillRect(0, 0, innerWidth, innerHeight);
-    for (var n = 0; n < particles.length; n++) {
-      particles[n].update();
+    if (document.getElementById(canvasId) != undefined) {
+      requestAnimationFrame(animate);
+      // cb.clearRect(0, 0, innerWidth, innerHeight);
+      cb.fillStyle = "rgba(255, 255, 255, 0.05)";
+      cb.fillRect(0, 0, innerWidth, innerHeight);
+      for (var n = 0; n < particles.length; n++) {
+        particles[n].update();
+      }
     }
   }
-
   animate();
 }
