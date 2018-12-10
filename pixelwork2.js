@@ -145,12 +145,12 @@ function init3(canvasID) {
 
   document.getElementById(canvasID).addEventListener("click", function() {
     let maxD = furthestWallCorner(event.clientX, event.clientY);
-    drops.push(new Drip(event.clientX, event.clientY, maxD.distance));
+    drops[0] = new Drip(event.clientX, event.clientY, maxD.distance);
   });
 
   document.getElementById(canvasID).addEventListener("touchstart", function() {
     let maxD = furthestWallCorner(event.clientX, event.clientY);
-    drops.push(new Drip(event.clientX, event.clientY, maxD.distance));
+    drops[0] = new Drip(event.clientX, event.clientY, maxD.distance);
   });
 
   function animate() {
